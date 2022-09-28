@@ -5,14 +5,20 @@ Opportunity name = Test 1
 Test 2 and So on
 
 **********************
-list<Account> acc = new list<Account>;
-list<Opportunity> opp1 = new list<opportunity>();
-for(Account i : acc)
+Trigger Acountchange On Account(after update ){
+list<Opportunity> opp2 = new list<opportunity>();
+Integer i = 1;
+for(Account acc : Triggr.new)
 {
-if(acc.type == "Prospect"){
+if(acc.type == 'Prospect'){
 Opportunity opp = new Opportunity();
-opp.name = acc.name +'test'+' '+ i;
-opp1.add(opp);
+opp.accountid = acc.id;
+opp.name = acc.name + i;
+opp.stage='warm';
+opp.closedate = System.today();
+opp2.add(opp);
+i++;
 }
 }
-
+insert opp2;
+} 
