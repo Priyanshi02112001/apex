@@ -1,0 +1,10 @@
+trigger updateopp on Opportunity (after insert) {
+    for(Opportunity occ : Trigger.new){
+            if(Trigger.oldmap.get(occ.id).stagename!=occ.stagename && occ.stagename =='Closed Won'){
+             
+            occ.closeDate=System.today();
+            occ.type='New Customer';
+             
+        }
+         
+     }
