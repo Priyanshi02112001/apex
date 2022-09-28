@@ -1,0 +1,16 @@
+trigger leadtrigger on Lead (before insert) {
+    set<String>emailid =new set<String>();
+    for(Lead ld1:Trigger.new){
+        emailid.add(ld1.email);
+    }
+    list<lead> ld2 = [select id ,email from lead where email IN: emailid];
+    Map<String ,Lead> mapl = new map<String ,Lead>();
+    for(Lead ld3:ld2){
+        mapl.put(ld3.email,ld3);
+    }
+    for(Lead ldd : Trigger.new){
+        if(mapl.containskey(ldd.email)){
+           ldd.adderror('we cant insert new lead');
+        }
+    }
+}
