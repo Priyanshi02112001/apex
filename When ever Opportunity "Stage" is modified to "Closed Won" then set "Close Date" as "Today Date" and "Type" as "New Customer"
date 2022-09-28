@@ -1,4 +1,4 @@
-trigger updateopp on Opportunity (after insert) {
+trigger updateopp on Opportunity (after update) {
     for(Opportunity occ : Trigger.new){
             if(Trigger.oldmap.get(occ.id).stagename!=occ.stagename && occ.stagename =='Closed Won'){
              
