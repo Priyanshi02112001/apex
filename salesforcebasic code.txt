@@ -1,0 +1,47 @@
+list< Contact> newcon  = [Select firstname,lastname from contacts];
+Integer i=1;
+for(contact con :newcon){
+con.firstname = con.firstname + i;
+i++;
+}
+update newcon;
+************************************create a list of cityname .
+list<String> citynames = new list<String>();
+citynames.add('hyd');
+citynames.add('goa');
+*************************
+List<String> emp = new list<String>();
+Employee__c emp1 = new Employee__c {Lastname = 'khan' , Firstname = 'faize',exp = 5};
+Employee__c emp2 = new Employee__c {Lastname = 'khanee' , Firstname = 'faizan',exp = 7 };
+emp.add(emp1);
+emp.add(emp2);
+*******************
+create a wrapper class contactInfo with lastName,firstName,age,Salary;
+public classs ContactInfo {
+
+public String LastName;
+public String FirsName;
+public Integer age;
+public Integer Salary;
+}
+
+2************cretate alist of contactinfo and insert data ;
+list<Contactinfo> coninfo = new list<Contactinfo>();
+Student std1 = new Student{ LastName ='M',FirstName = 'raj',age = '20', Salary = '10000' };
+Student std2 = new Student{ LastName ='K',FirstName = 'kavya',age = '26', Salary = '60000' };
+Student std3 = new Student{ LastName ='H',FirstName = 'rahul',age = '24', Salary = '40000' };
+coninfo.add(std1);
+coninfo.add(std2);
+coninfo.add(std3);
+3 *******************create a list contact add record from coninfo.
+list<contact> con = new list <Contact>();
+for(contact con2:coninfo){
+contact con3 = new contact();
+con3.lastname = con2.lastname;
+con3.firstname = con2.firstname;
+con3.age = con2.age;
+con3.salary = con2.salary ;
+con.add(con3);
+}
+
+
