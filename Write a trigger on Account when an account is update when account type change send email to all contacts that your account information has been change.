@@ -1,0 +1,26 @@
+  Write a trigger on Account when an account is update when account type
+change send email to all contacts that your account information has been
+change.
+Subject: Account Update Info
+Body : Your account information has been updated successfully. Account Name :
+XYZ.  
+
+    set<id> accid = new set<id>();
+    for(Account aac : Trigger.new){
+        if(Trigger.oldmap.get(aac.id).Type != aac.Type)
+        {
+             accid.add(aac.Id);
+        }
+    }
+    list<Contact> con =[Select email, firstname , Account.Name from Contact where AccountId IN: accid];
+    Messaging.SingleEmailMessage msg1 = new Messaging.SingleEmailMessage();
+    for(Contact co : con){
+        list<String> addtoo = new list<String>();
+        addtoo.add(co.email);
+        msg1.setToAddresses(addtoo);
+        msg1.setSubject('Account Update Info');
+        msg1.setPlainTextBody('Your account information has been updated successfully Account Name : '+ co.Account.Name);
+       list<Messaging.SingleEmailMessage> emaillist1 = new list<Messaging.SingleEmailMessage>{msg1};
+       Messaging.sendEmail(emaillist1); 
+     }
+  
