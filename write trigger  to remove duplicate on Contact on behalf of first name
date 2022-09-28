@@ -1,0 +1,16 @@
+trigger removeduplicate on Contact(after insert){
+    set<String> name = new set<String>();
+    for(Contact con : Trigger.new)
+    {//duplicate contact nhi ana chahiye
+        name.add(con.FirstName);
+    }
+    list<Contact> con1 = [select id ,FirstName from contact where FirstName IN: name] ;
+    Map<String , Contact> mapc = new Map<String ,Contact>();
+    for(Contact con2 : con1){
+        mapc.put(con2.FirstName,con2);
+    }
+    for(Contact con3 : Trigger.new){
+        if(mapc.containsKey(con3.FirstName)){
+           con3.adderror('we cant insert new contact');
+        }
+    } 
