@@ -1,0 +1,278 @@
+import java.util.*;
+public class Main
+{ public static int sum(int a,int b)
+   { int sum = a+b;
+   return sum;}
+public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int a =sc.nextInt();
+    int b =sc.nextInt();
+     System.out.println(sum(a,b));
+     }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    String str = "Priyanshi";
+	    int count=0;
+	    for(int i=0;i<str.length();i++){
+	        char ch = str.charAt(i);
+	        if(ch!='a'|| ch=='i'|| ch=='o'|| ch == 'u')
+	        count++;
+	    }
+		System.out.println(count);
+	}
+}
+reverse array
+public class Main
+{
+	public static void main(String[] args) {
+	    int [] arr = new int [] {1, 2, 3, 4, 5};  
+         
+        System.out.println("Array in reverse order: ");  
+        //Loop through the array in reverse order  
+        for (int i = arr.length-1; i >= 0; i--) {  
+            System.out.print(arr[i] + " ");  
+        }  
+      
+}  
+	    }
+reverse number
+
+public class Main
+{
+	public static void main(String[] args) {
+	    int n = 187; int rev=0;int a;  
+        while(n!=0)
+	    {
+	        a=n%10;
+	        rev= (rev*10)+a;
+	        n=n/10;
+	    }
+	    System.out.print(rev);
+	}  
+	}
+
+roman value
+	public class Main
+{
+	public static void main(String[] args) {
+	    int[] values = {1000,900,500,400,100,90,50,40,10,9,5,4,1};
+        String[] romanLiterals ={"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
+
+        String roman = "";
+int num=25;
+        for(int i=0;i<values.length;i++) {
+            while(num >= values[i]) {
+                num -= values[i];
+                roman = roman + romanLiterals[i];
+            }
+        }
+        System.out.println(roman);
+	}  
+	}
+perfect NUMBER 
+	public class Main
+{
+	public static void main(String[] args) {
+	    int sum=0;
+	    int n=6;
+	    for(int i=1;i<n;i++){
+	        if(n%i==0){
+	       sum=sum+i;
+ }}if(sum==n){
+	    System.out.print(sum);
+     System.out.print("it is perfect square");
+ }
+	    else{
+	        System.out.print("it is not perfect square");
+	    }
+	}}
+perfect square
+public class Main
+{
+  public static void main (String[]args)
+  {int n=69;
+  
+double sqrt=Math.sqrt(n);   
+if(sqrt - Math.floor(sqrt) == 0)   {
+    System.out.print("it is perfect sqare");
+      }
+      else{
+          System.out.print("not perfect square");
+}}}
+
+pime no.
+public class Main
+{
+  public static void main (String[]args)
+  {
+    int count = 0;
+    int n=6;
+    for (int i = 2; i < n - 1; i++)
+      {
+	if (n % i == 0)
+	  {
+	    count++;
+	  }
+      }
+    if (count == 0)
+      System.out.print ("prime no.");
+    else
+      {
+	System.out.print ("not prime no.");
+armstrong 
+public class Main
+{
+  public static void main (String[]args)
+  {int n=153;
+  double arm=0;
+   while(n!=0){
+      int a=n%10;
+       arm = arm + Math.pow(a,3);
+       n=n/10;
+       
+   }
+	System.out.print (arm);
+
+      }
+
+
+  }
+
+
+      }
+sorting of array
+public class Main
+{
+	public static void main(String[] args) {
+	   String str = "race";
+	 char arr[] = str.toCharArray();
+	 char temp;
+	 for(int i=0;i<arr.length;i++){
+	     for(int j=i+1; j<arr.length;j++){
+	         if(arr[j]<arr[i]){
+	             temp = arr[i] ;//temp=r
+	             arr[i]= arr[j];//r=a
+	             arr[j] =temp;//a=temp
+	             }
+	 }
+}
+System.out.print(arr);
+}}
+
+class HelloWorld {
+    public static void main(String[] args) {
+        int a[] = {10,23,45,46};
+        int n = a.length;
+        int[] b = new int[n];
+        int j = n;
+        for (int i = 0; i < n; i++) {
+            b[j - 1] = a[i];
+            j = j - 1;
+        }
+  
+        // printing the reversed array
+        System.out.println("Reversed array is: \n");
+        for (int k = 0; k < n; k++) {
+            System.out.println(b[k]);
+        }
+    }
+  
+    }	 
+
+
+find digit 
+public static int findDigits(int n) {
+    // Write your code here
+    int count=0;
+    int b=n;
+     while(n!=0)
+     {
+     int a= n%10;
+     if(a!=0 && b%a==0 ){
+       count++;
+     }
+    n=n/10;
+    }
+    return count;
+
+}
+}
+
+ public static int utopianTree(int n) {
+    // Write your code here
+    int height=1;
+    for(int cycle=1;cycle<=n;cycle++){
+    if(cycle%2==0){
+        height = height+1;
+    }
+    else{
+        height = height*2;
+    }
+    }
+    return height;
+
+public class Main
+{
+	public static void main(String[] args) {
+	   String str = "Priyanshi";
+	    int count=0;
+	    for(int i=0;i<str.length();i++){
+	        char ch = str.charAt(i);
+	        if(ch!='a'&& ch!='i'&& ch!='o'&& ch!='u' && ch!='e')
+	        {
+	            count++;
+	            System.out.print(ch);
+	        
+	    }
+	    }
+		System.out.println(count);
+	}
+}
+//reverse with space///
+ 
+class HelloWorld {
+    public static void main(String[] args) {
+        String input = "My name" ; 
+   
+        char[] inputArray = input.toCharArray();  
+        char[] result = new char[inputArray.length];  
+   
+        for (int i = 0; i < inputArray.length; i++) {  
+            if (inputArray[i] == ' ') {  
+                result[i] = ' ';  
+            }  
+        }  
+   
+        int j = result.length - 1;  
+   
+        for (int i = 0; i < inputArray.length; i++) {  
+            if (inputArray[i] != ' ') {  
+                if (result[j] == ' ') {  
+                    j--;  
+                }  
+                result[j] = inputArray[i];  
+                j--;  
+            }  
+        }  
+        System.out.println(input + " --> " + String.valueOf(result));  
+    }  
+   
+    }
+
+
+fibnacci series 
+class HelloWorld {
+    public static void main(String[] args) {
+        int n1=0,n2=1,n3=0;
+        int count=10;
+        System.out.print(n1+" "+n2);
+        for(int i = 2;i<count;i++){
+            n3=n1+n2;
+            System.out.print(" "+n3);
+            n1=n2;
+            n2=n3;
+        }
+        
+    }}
