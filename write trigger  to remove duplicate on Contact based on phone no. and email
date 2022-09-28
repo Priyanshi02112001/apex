@@ -1,0 +1,19 @@
+trigger contactduplicate on Contact (before insert) {
+    set<String> mail = new set<String>();
+    set<String> phonenumber = new set <String>();
+    for(Contact con : Trigger.new){
+        mail.add(con.email);
+        phonenumber.add(con.phone);
+    }
+    list<Contact> acc = [Select firstname ,phone ,email from contact where email IN: mail OR phone IN: phonenumber];
+    map<String,Contact> map1 = new map<String,Contact>();
+    map<String,Contact> map2 = new map<String,Contact>();
+    for(Contact con1 : acc){
+    map1.put(con1.email,con1);
+    map2.put(con1.phone,con1);
+    }
+    for(Contact con2 : Trigger.new){
+        if(map1.containsKey(con2.email) || map2.containsKey(con2.phone)){
+           con2.adderror('you cant create new record because the record is already exist');
+        }}
+}
