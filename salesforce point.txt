@@ -1,9 +1,0 @@
-**Account and contact have a lookup relationship. It is lookup because you can create a contact without account. However it behaves weird –like master detail in business logics – when you create a contact with account and you delete that account then contact will be also deleted.
-
-**Account and opportunity having Lookup relationship. Simply, Account is a parent Opportunity. If we delete Account record, that related Opportunity records are deleted automatically from the database. Here lookup relationship is treated as Master-Details relationship
-
-An asynchronous process is a process or function that executes a task "in the background" without the user having to wait for the task to finish.
-Future Methods-	Run in their own thread, and do not start until resources are available.ex	Web service callout.
-Batch Apex	-Run large jobs that would exceed normal processing limits.	Data cleansing or archiving of records.
-Queueable Apex	-Similar to future methods, but provide additional job chaining and allow more complex data types to be used.	Performing sequential processing operations with external Web services.
-Scheduled Apex	-Schedule Apex to run at a specified time.	Daily or weekly tasks.
