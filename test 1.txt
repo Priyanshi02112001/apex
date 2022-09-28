@@ -1,0 +1,18 @@
+Account type is changed as "Prospect" then create a new Opportunity with all the required fields.
+But opportunity name = Account name + "Sequence Number"
+EX:- Account name = Test
+Opportunity name = Test 1
+Test 2 and So on
+
+**********************
+list<Account> acc = new list<Account>;
+list<Opportunity> opp1 = new list<opportunity>();
+for(Account i : acc)
+{
+if(acc.type == "Prospect"){
+Opportunity opp = new Opportunity();
+opp.name = acc.name +'test'+' '+ i;
+opp1.add(opp);
+}
+}
+

@@ -1,0 +1,18 @@
+/*if anyone is trying to insert more than 2 contacts on an account throw error */
+
+trigger contactc on contact(before insert){
+set<id>set1 = new set<id>();
+for(Contact con: trigger.new){
+set1.add(con.accountid);
+}
+list<account> acc = [Select id,name,[select id from contacts]from account where id IN: set1];
+map<String,Integer> map1 = new map<String,Integer>();
+for(Account acc1: acc)
+{
+map1.put(acc1.id,acc1.contacts.size());
+}
+for(Contact con :trigger.new){
+if(map1.get(con.accountid)=>2){
+con.addError('cant insert new contact');
+}
+}
